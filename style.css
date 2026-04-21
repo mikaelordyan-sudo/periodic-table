@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #0b1d1d 0%, #000 100%);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Навигация как на видео */
+.menu {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid rgba(0, 255, 200, 0.4);
+    color: rgba(0, 255, 200, 0.8);
+    padding: 8px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn:hover, .btn.active {
+    background: rgba(0, 255, 200, 0.1);
+    border-color: #00ffc8;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.3);
+}
+
+/* Сцена и камера */
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px; /* Глубина 3D */
+}
+
+#camera {
+    transform-style: preserve-3d;
+    transform: translateZ(-1500px); /* Отдаляем камеру, чтобы влезло всё */
+}
+
+#scene {
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* Карточки элементов (Дизайн с видео) */
+.element {
+    width: 90px;
+    height: 125px;
+    position: absolute;
+    background: rgba(0, 50, 50, 0.6);
+    border: 1px solid rgba(0, 255, 200, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 255, 200, 0.1);
+    padding: 8px;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.element:hover {
+    background: rgba(0, 255, 200, 0.2);
+    border-color: #00ffc8;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+}
+
+.element .num { font-size: 10px; text-align: right; color: #00ffc8; }
+.element .sym { font-size: 32px; font-weight: bold; text-align: center; }
+.element .name { font-size: 9px; text-align: center; opacity: 0.8; }
